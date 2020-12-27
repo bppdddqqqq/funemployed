@@ -11,7 +11,7 @@
         "Zdravotná sestra na urgentnom príjme",
         "Chovateľ psov",
         "Robotník na olejovej platforme",
-        "Súdny lekár pri pitve",
+        "Patológ",
         "Chovateľ červov",
         "Umývačka riadu",
         "Upratovač(ka) v spermobanke",
@@ -73,7 +73,7 @@
         "Plný strachu",
         "Kúpe sa v kyseline",
         "Má rád hry",
-        "Má pod tonpánkami vlhké mydlá",
+        "Má pod topánkami vlhké mydlá",
         "Vyrába pervitín",
         "Má ho veľkého",
         "Má na sebe veľkú loveckú sieť",
@@ -87,6 +87,9 @@
         "Ťažké tráviace ťažkosti",
         "Maďar",
         "Volič SPD/Kotleba",
-        "Pracovná skúsenost: prostitút(ka)"
+        "Pracovná skúsenost: prostitút(ka)",
+        "Vzorky zdarma",
+        "Robustný mongoloid",
+        "Milovník Starobrna"
     ]
 }
