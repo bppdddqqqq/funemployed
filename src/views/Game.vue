@@ -11,6 +11,8 @@
     </div>
     
     <div v-if="!isInterviewer">
+      <hr />
+      
       <h2>Máš tieto kvality</h2>
 
       <div>
@@ -20,7 +22,8 @@
       </div>
     </div>
 
-    <div>
+    <div class="spacer"></div>
+    <div class="floaty">
       <button v-if="playerData.iteration > 0" @click="decrement">Zobraz predoslý ťah</button>
       <button @click="increment">Pokračovať do ďaľšieho ťahu</button>
     </div>    
@@ -30,6 +33,7 @@
 <script lang="ts">
 import cards from '../gamerules/cards.json'
 import { reactive, onMounted, defineComponent, computed } from 'vue';
+import { useRoute } from 'vue-router'
 import seedrandom from 'seedrandom'
 import _ from 'lodash'
 import card from '../components/card.vue'
@@ -69,14 +73,18 @@ export default defineComponent({
       iteration: 0,
       count: 1
     })
+    const route = useRoute()
 
     onMounted(() => {
-      const urlParams = new URLSearchParams(window.location.search);
+      let seed = String(route.query.seed) || '123456';
+      let player = Number(route.query.player) || 0;
+      let iteration = Number(route.query.iteration) || 0;
+      let count = Number(route.query.count) || 1;
 
-      playerData.seed = urlParams.get('seed') || '123456'
-      playerData.player = Number(urlParams.get('player'))
-      playerData.iteration = Number(urlParams.get('iteration'))
-      playerData.count = Number(urlParams.get('count'))
+      playerData.seed = seed
+      playerData.player = player
+      playerData.iteration = iteration
+      playerData.count = count
     })
 
     const isInterviewer = computed(() => {
@@ -120,4 +128,24 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+button {
+  margin: 0 0.33rem;
+  border-radius: 0.25rem;
+  border: 1px solid #aeaeae;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .floaty {
+    position: fixed;
+    bottom: 0; 
+    background: white;
+    width: 100%;
+    padding: 1rem 0;
+  }
+  .spacer {
+    margin-top: 5rem;
+  }
+}
 </style>

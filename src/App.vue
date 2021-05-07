@@ -1,9 +1,9 @@
 <template>
   <div id="nav">
     <router-link to="/">Nastavenia</router-link> |
-    <router-link to="/about">Hra</router-link>
+    <router-link to="/game">Hra</router-link>
   </div>
-  <router-view/>
+  <router-view style="margin-bottom:1.5rem" />
 </template>
 
 <style>

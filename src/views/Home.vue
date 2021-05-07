@@ -1,10 +1,10 @@
 <template>
   <div class="settings">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <h1>FUNemployment!</h1>
 
-    <h1>Settings</h1>
+    <h1>Nastavenia hry</h1>
 
-    <form action="#/about">
+    <form @submit="routeUp">
       <label for="seed">Názov hry (názov hry musí byť rovnaký medzi všetkými hráčmi!): </label>
       <input type="text" v-model="payload.seed" name="seed"><br><br>
 
@@ -14,7 +14,7 @@
       <label for="player">Číslo hráča (od 0 po počet hráčov (nie vrátane!)): </label>
       <input type="number" v-model="payload.player" name="player"><br><br>
       
-      <label for="iteration">Číslo ťahu (ak ste sa stratili v hre :( )): </label>
+      <label for="iteration">Číslo ťahu (ak sa vám náhle vypla hra :(, inak to neupravujte! ): </label>
       <input type="number" v-model="payload.iteration" name="iteration"><br><br>
 
       <input type="submit" value="Start">
@@ -52,6 +52,10 @@ export default {
       return this.$store.getters.getPlayer()
     }
   },
-  
+  methods: {
+    routeUp() {
+      this.$router.replace({name: 'Hra', query: { player: this.payload.player, seed: this.payload.seed, iteration: this.payload.iteration, count: this.payload.count } })
+    }
+  }  
 }
 </script>
